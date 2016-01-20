@@ -10,7 +10,7 @@ $ virtualenv venv
 
 run requirements file
 
-(venv)$ pip install -r requirements.txt
+(venv) $ pip install -r requirements.txt
 
 ##step 3
 
@@ -43,3 +43,13 @@ set FLASKY_ADMIN='example@mail.com'
 set MAIL_SENDER='example@mail.com'
 
 set MAIL_PASSWORD='emailpassword'
+
+##step 4
+
+launch application on localhost
+
+(venv) $ python hello.py runserver --host localhost
+
+##step 5
+
+navigate to  http://localhost:5000/
