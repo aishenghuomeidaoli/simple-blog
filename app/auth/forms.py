@@ -3,6 +3,7 @@ from flask.ext.wtf import Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from  ..models import User
+from app.exceptions import ValidationError
 
 class LoginForm(Form):
     email = StringField('邮箱', validators=[Required(), Length(1,64), Email()])

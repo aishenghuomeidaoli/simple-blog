@@ -61,3 +61,5 @@ target/
 migrations/
 *.sqlite
 venv/
+*.gitignore~
+*.py~

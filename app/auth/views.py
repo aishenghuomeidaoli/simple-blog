@@ -1,5 +1,5 @@
 #-*- coding:UTF-8 -*-
-from flask import render_template, redirect, request, url_for, flash
+from flask import render_template, redirect, request, url_for, flash, current_app
 from . import auth
 from flask.ext.login import login_required, login_user, current_user, logout_user
 from ..models import User
@@ -33,12 +33,20 @@ def logout():
 def register():
     form=RegistrationForm()
     if form.validate_on_submit():
-        user=User(email=form.email.data, username=form.username.data, password=form.password.data)
-        db.session.add(user)
-        db.session.commit()#        确认令牌需要用到id，所以要提交数据库赋予id，且不能延后
-        token=user.generate_confirmation_token()#加载加密令牌
-        send_email(user.email,'账户认证','auth/email/confirm',user=user,token=token)
-        flash('认证邮件已发送至您的邮箱，请查收。')
+        if form.email.data==current_app.config['FLASKY_ADMIN']:
+            user=User(email=form.email.data, username=form.username.data, password=form.password.data)
+            user.confirmed=True
+            user.role=Role.query.filter_by(name='Administrator').first()
+            db.session.add(user)
+            db.session.commit()
+            flash('你好管理员')
+        else:
+            user=User(email=form.email.data, username=form.username.data, password=form.password.data)
+            db.session.add(user)
+            db.session.commit()#        确认令牌需要用到id，所以要提交数据库赋予id，且不能延后
+            token=user.generate_confirmation_token()#加载加密令牌
+            send_email(user.email,'账户认证','auth/email/confirm',user=user,token=token)
+            flash('认证邮件已发送至您的邮箱，请查收。')
         return redirect(url_for('main.index'))
     return render_template('auth/register.html', form=form)
 
