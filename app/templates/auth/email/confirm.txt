@@ -1,0 +1,10 @@
+你好 {{user.username}},
+
+欢迎来到 爱生活-blog!
+
+请点击下面的链接进行账户认证：
+
+{{url_for('auth.confirm',token=token, _external=True) }}
+
+
+谢谢！

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}爱生活-blog 未认证{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <h1>雷吼啊, {{ current_user.username }}</h1>
+</div>
+<div class="col-md-4">
+    <p>账户未认证请点击这里。</p>
+    <a href="{{ url_for('auth.resend_confirmation') }}">认证</a>
+</div>
+{% endblock %}
