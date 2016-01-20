@@ -2,7 +2,7 @@
 
 ##step 1
 
-bulid virtual environments
+bulid and run virtual environments
 
 $ virtualenv venv
 
@@ -26,7 +26,7 @@ set envirment variables
 
 * Linux:
 
-explore MAIL_SERVER='smtp.mail.com' 
+export MAIL_SERVER='smtp.emailserver.com' 
 
 export MAIL_PORT=xx
 
@@ -54,9 +54,21 @@ set MAIL_PASSWORD='emailpassword'
 
 ##step 4
 
+* launch application in shell to create database tables
+
+(venv) $ python manage.py shell
+
+>>> from manage import db
+
+>>> db.create_all()
+
+* insert roles
+
+>>> Role.insert_roles()
+
 launch application on localhost
 
-(venv) $ python hello.py runserver --host localhost
+(venv) $ python manage.py runserver --host localhost
 
 ##step 5
 
