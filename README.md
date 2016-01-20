@@ -6,6 +6,14 @@ bulid virtual environments
 
 $ virtualenv venv
 
+* Linux：
+
+$ source venv/bin/activate
+
+* Windows：
+
+$ venv\Scripts\activate
+
 ##step 2
 
 run requirements file
