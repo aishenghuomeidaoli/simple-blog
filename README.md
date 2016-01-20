@@ -66,7 +66,7 @@ set MAIL_PASSWORD='emailpassword'
 
 >>> Role.insert_roles()
 
-launch application on localhost
+* launch application on localhost
 
 (venv) $ python manage.py runserver --host localhost
 
