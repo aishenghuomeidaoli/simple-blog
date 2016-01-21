@@ -63,3 +63,4 @@ migrations/
 venv/
 *.gitignore~
 *.py~
+venvwin/
