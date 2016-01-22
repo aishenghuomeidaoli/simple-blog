@@ -22,35 +22,15 @@ run requirements file
 
 ##step 3
 
-set envirment variables
+open config.py to set envirment variables, save config.py
 
-* Linux:
-
-export MAIL_SERVER='smtp.emailserver.com' 
-
-export MAIL_PORT=xx
-
-export FLASKY_MAIL_SENDER='example@mail.com'
-
-export FLASKY_ADMIN='example@mail.com'
-
-export MAIL_SENDER='example@mail.com'
-
-export MAIL_PASSWORD='emailpassword'
-
-* Windows:
-
-set MAIL_SERVER='smtp.mail.com'
-
-set MAIL_PORT=xx
-
-set FLASKY_MAIL_SENDER='example@mail.com'
-
-set FLASKY_ADMIN='example@mail.com'
-
-set MAIL_SENDER='example@mail.com'
-
-set MAIL_PASSWORD='emailpassword'
+* line 9  FLASKY_MAIL_SENDER
+* line 10 FLASKY_ADMIN
+* line 21 MAIL_SERVER
+* line 22 MAIL_PORT
+* line 23 MAIL_USE_LTS
+* line 24 MAIL_USERNAME
+* line 25 MAIL_PASSWORD
 
 ##step 4
 
