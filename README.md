@@ -22,7 +22,7 @@ run requirements file
 
 ##step 3
 
-open config.py to set envirment variables, save config.py
+open config.py to set envirment variables
 
 * line 9  FLASKY_MAIL_SENDER
 * line 10 FLASKY_ADMIN
