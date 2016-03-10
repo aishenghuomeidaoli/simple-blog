@@ -42,10 +42,6 @@ open config.py to set envirment variables
 
 >>> db.create_all()
 
-* insert roles
-
->>> Role.insert_roles()
-
 * launch application on localhost
 
 (venv) $ python manage.py runserver --host localhost
