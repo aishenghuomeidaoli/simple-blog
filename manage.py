@@ -40,6 +40,14 @@ def test(coverage=False):
 		COV.html_report(directory=covdir)
 		print('HTML version:file://%s/index.html'%covdir)
 		COV.erase()
-	
+
+def deploy():
+	"""run development tasks."""
+	from flask.ext.migrate import upgrade
+	from app.models import Role,User
+
+	upgrade#数据库迁移到最新版本
+	Role.insert_roles()#创建用户角色
+	User.add_self_follows()#完成用户关注功能
 if __name__ == '__main__':
 	manager.run()

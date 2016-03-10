@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask.ext.login import UserMixin, AnonymousUserMixin
 from . import db, login_manager
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer#生成带有过期时间的JSON web签名
-from flask import current_app, request, url_for
+from flask import current_app, request, url_for, session
 import hashlib, bleach
 from datetime import datetime
 from markdown import markdown
@@ -122,7 +122,7 @@ class User(UserMixin,db.Model):
                 self.role=Role.query.filter_by(default=True).first()
         if  self.email is not None and self.avatar_hash is None:
             self.avatar_hash = hashlib.md5(self.email.encode('utf-8')).hexdigest()
-        self.follow(self)
+        self.followed.append(Follow(followed=self))
 
     #若角色中包含请求的所有权限位，返回True
     def can(self, permissions):
